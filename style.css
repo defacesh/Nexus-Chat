@@ -1,0 +1,920 @@
+/* General Styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+  color: white;
+  
+}
+body{
+  background: linear-gradient(180deg, #0d0e0e 0%, #1a1a1a 100%);
+}
+/* Scrollbar Style */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(63, 63, 63);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(163, 163, 163);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 255, 255);
+}
+
+/* Top Container */
+.top-container {
+  padding: 9px;
+  text-align: center;
+  background-color: #0d0e0e;
+  box-shadow: 0px 3px 3px -25px white;
+  border-bottom: 1px solid #36393f;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  padding-top: 49px; /* Space equal to top container height */
+  background: linear-gradient(180deg, #0d0e0e 0%, #1a1a1a 100%);
+}
+
+/* Left Side */
+.left-side-container {
+  display: flex;
+  flex-direction: row;
+  max-width: fit-content;
+  background-color: #0d0e0e;
+  border-right: 1px solid #36393f;
+  position: fixed;
+  top: 49px; /* Space equal to top container height */
+  bottom: 0;
+  z-index: 999;
+  
+}
+
+.server-container {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  background-color: #0d0e0e;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(180deg, #0d0e0e 0%, #1a1a1a 100%);
+}
+
+.app-logo {
+    width: 50px;
+    height: 50px;
+    background-color: #0d0e0e;
+    border: 2px solid #2fff97;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    padding: 15px; /* Inner padding */
+    
+  }
+  
+  .app-logo h2 {
+    color: #2fff97;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+  }
+  
+  .app-logo hr {
+    width: 90%; /* HR width */
+    border: 0.5px solid white; /* HR thickness and color */
+  }
+
+.servers {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.server-item {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: #0d0e0e;
+  border: 1px solid #36393f;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.server-item::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  width: 3px;
+  height: 30px;
+  background-color: white;
+  border-radius: 2px;
+  visibility: hidden;
+}
+
+.server-item.active::before {
+  visibility: visible;
+}
+
+/* Channel Container */
+.channel-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: #0d0e0e;
+  box-shadow: 0 0 0 0.5px #36393f;
+  padding-top: 10px;
+  position: relative;
+  background: linear-gradient(180deg, #0d0e0e 0%, #1a1a1a 100%);
+}
+
+.channel-server-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #36393f;
+}
+
+.channel-server-info h3 {
+  text-align: center;
+}
+
+.channel-category {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Reduced gaps */
+  padding: 10px;
+}
+
+.channel-category h4 {
+  color: rgb(218, 217, 217);
+  margin-bottom: 5px;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  height: 30px; /* Reduced height */
+  padding: 0 10px; /* Reduced padding */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.channel.active {
+  background-color: #272626;
+}
+
+.channel h5 {
+  color: rgb(218, 217, 217);
+  font-size: 14px; /* Reduced font size */
+}
+
+/* Center Container (Chat Area) */
+.center-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  background-color: #0d0e0e;
+  margin-left: 380px; /* Space equal to left side and channel container width */
+  padding-top: 10px;
+  padding-bottom: 80px;
+  position: relative;
+  padding-bottom: 0;
+  background: linear-gradient(180deg, #0d0e0e 0%, #1a1a1a 100%);
+}
+
+.chat-area {
+  padding-left: 20px;
+  flex: 2;
+  overflow-y: auto;
+}
+textarea {
+  width: 100%;
+  height: auto; /* Auto sizes to content */
+  resize: none; /* Prevent user from resizing */
+  overflow-y: hidden; /* Prevents scrollbar when text area scrolls */
+}
+.message-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.profile-photo {
+  width: 50px;
+  height: 50px;
+  border: 1px solid white;
+  border-radius: 100%;
+  flex-shrink: 0;
+}
+.bottom-controls .material-icons {
+  font-size: 20px;
+}
+.message-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.username {
+  color: #4ed33df3;
+}
+
+.time {
+  color: #dcdcdcb0;
+  font-size: x-small;
+}
+
+.message {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+}
+
+/* Chat Bottom Area (Textarea and Buttons) */
+.chat-bottom-area {
+  position: fixed;
+  display: flex;
+  min-height: 60px;
+  align-items: flex-end;
+  margin-top: 50px;
+  padding: 10px;
+  background: #0d0e0e;
+  border-top: 1px solid #36393f;
+  border-left: 1px solid #36393f;
+  border-right: 1px solid #36393f;
+  gap: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 380px; /* Space equal to left side and channel container width */
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, #0d0e0e 0%, #1a1a1a 100%);
+}
+
+.message-box {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  background: #37383865;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 40px;
+  max-height: 150px;
+  overflow: hidden;
+}
+
+#message-input::placeholder {
+  user-select: none; /* Make placeholder text unselectable */
+  -moz-user-select: none; /* For Firefox */
+  -webkit-user-select: none; /* For Chrome, Safari, Edge */
+  -ms-user-select: none; /* For Internet Explorer */
+  color: #6b6b6b; /* Placeholder color */
+  opacity: 1; /* Ensure placeholder color displays correctly in Firefox */
+}
+
+#message-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: white;
+  font-size: 15px;
+  line-height: 20px;
+  overflow-y: hidden;
+}
+
+.button-group button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+}
+
+.button-group button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.button-group button i {
+  vertical-align: middle;
+}
+
+.file-upload,
+.emoji-picker,
+.gif-picker,
+.sticker-picker {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.file-upload:hover,
+.emoji-picker:hover,
+.gif-picker:hover,
+.sticker-picker:hover {
+  opacity: 0.5;
+}
+.right-side-container {
+  width: 250px; /* Reduce right-side width */
+  background-color: #0d0e0e;
+  border-left: 1px solid #36393f;
+  padding: 10px;
+  color: white;
+  background: linear-gradient(180deg, #0d0e0e 0%, #1a1a1a 100%);
+}
+
+.user-list {
+  max-height: calc(100vh - 150px); /* Adjust according to screen height */
+  overflow-y: auto; /* Dikey scroll ekle */
+  padding-right: 8px; /* Space for scrollbar */
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px; /* Padding'i biraz azalt */
+  margin-bottom: 8px; /* Spacing between users */
+  border-radius: 8px;
+  background-color: #1e1f22;
+  min-height: 50px; /* User item height */
+}
+
+.user-item.online {
+  border-left: 3px solid #2fff97; /* Green line for online users */
+}
+
+.user-item.offline {
+  border-left: 3px solid #6b6b6b; /* Grey line for offline users */
+}
+
+.profile-photo {
+  width: 30px; /* Reduce profile photo size */
+  height: 30px;
+  border-radius: 50%;
+  background-color: #36393f;
+  border: 2px solid #2fff97;
+  flex-shrink: 0; /* Keep its size fixed */
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1; /* Fill remaining space */
+  overflow: hidden; /* Truncate long texts */
+}
+
+.username {
+  font-size: 14px;
+  color: #dcdcdc;
+  white-space: nowrap; /* Keep text on a single line */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Show overflow with "..." */
+}
+
+.user-category h3 {
+  font-size: 14px; /* Reduce header size */
+  color: #dcdcdc;
+  margin-bottom: 10px; /* Spacing between header and user list */
+}
+
+.user-count {
+  color: #6b6b6b;
+  font-size: 12px; /* Reduce user count font size */
+}
+
+/* Unselectable class */
+.no-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* User Statuses (Fixed at Bottom) */
+.user-status {
+  position: sticky; /* Sticky position */
+  bottom: 50px; /* Keep above buttons */
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: auto; /* Push to bottom */
+  z-index: 1; /* Ensure it stays above other elements */
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #36393f;
+  border: 2px solid #2fff97;
+}
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-size: 14px;
+  color: #dcdcdc;
+}
+
+.status-text {
+  font-size: 12px;
+  color: #6b6b6b;
+}
+
+/* Microphone, Speaker and Settings Buttons */
+.bottom-controls {
+  background: linear-gradient(180deg, #0d0e0e 0%, #1a1a1a 100%);
+  position: sticky; /* Sticky position */
+  bottom: 0; /* Fix to bottom */
+  display: flex;
+  justify-content: space-between; /* Balance spacing between buttons */
+  align-items: center;
+  background-color: #0d0e0e;
+  border-top: 1px solid #36393f;
+  padding: 2px 50px; /* Reduced padding */
+  z-index: 2; /* Ensure it stays above other elements */
+}
+
+.control-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  padding: 8px; /* Reduce button padding */
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.control-button:hover {
+  background: rgba(47, 255, 151, 0.15);
+  transform: translateY(-3px) scale(1.15);
+  box-shadow: 0 4px 15px rgba(47, 255, 151, 0.2);
+}
+
+.control-button:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2fff97;
+  color: #0d0e0e;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0;
+  animation: tooltipFade 0.3s ease-out forwards;
+}
+
+@keyframes tooltipFade {
+  from { opacity: 0; transform: translate(-50%, 5px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.control-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: radial-gradient(circle at center, 
+    rgba(47, 255, 151, 0.4) 0%, 
+    transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.control-button:hover::before {
+  opacity: 1;
+}
+
+.control-button:active {
+  transform: scale(0.92);
+  filter: brightness(1.2);
+}
+@keyframes pulse-wave {
+  0% { box-shadow: 0 0 0 0 rgba(47, 255, 151, 0.4); }
+  100% { box-shadow: 0 0 0 12px rgba(47, 255, 151, 0); }
+}
+
+.control-button.active {
+  animation: pulse-wave 1.5s infinite;
+  background-color: #2fff97 !important;
+  color: #0d0e0e !important;
+}
+
+/* Settings Button Special Effect */
+.control-button.settings:hover {
+  transform: rotate(90deg) scale(1.15);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Progress Bar Efekti */
+.volume-container {
+  position: relative;
+  width: 120px;
+  height: 4px;
+  background: #36393f;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.volume-progress {
+  height: 100%;
+  background: #2fff97;
+  position: relative;
+  transition: width 0.3s ease;
+}
+
+.volume-progress::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: -3px;
+  width: 10px;
+  height: 10px;
+  background: #2fff97;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #2fff97;
+}
+
+/* Enhanced Hover Effects */
+.server-item {
+  transition: all 0.3s ease, border-color 0.2s linear;
+  cursor: pointer;
+}
+
+.server-item:hover {
+  border-color: #2fff97;
+  background-color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+.server-item:hover::before {
+  visibility: visible;
+  background-color: #2fff97;
+}
+
+.server-item.active:hover::before {
+  background-color: white;
+}
+
+/* Kanal Hover Efektleri */
+.channel {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.channel:hover {
+  background-color: #272626;
+  transform: translateX(5px);
+}
+
+.channel:hover h5 {
+  color: white;
+}
+
+.channel.active:hover {
+  background-color: #323232;
+}
+
+/* Mesaj Hover Efektleri */
+.message-container {
+  transition: background-color 0.3s ease;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.message-container:hover {
+  background-color: #1a1a1a;
+}
+
+.message-container:hover .profile-photo {
+  transform: scale(1.05);
+}
+
+.profile-photo {
+  transition: transform 0.3s ease;
+}
+
+/* Buton Hover Efektleri */
+.button-group button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.button-group button:hover {
+  background: rgba(47, 255, 151, 0.1);
+  transform: scale(1.1);
+}
+
+.button-group button:active {
+  transform: scale(0.95);
+}
+
+.button-group button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.button-group button:hover::after {
+  width: 100px;
+  height: 100px;
+}
+
+/* User List Hover */
+.user-item {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.user-item:hover {
+  background-color: #2a2b2e;
+  transform: translateX(3px);
+}
+
+.user-item:hover .profile-photo {
+  border-color: white;
+}
+
+/* Control Buttons */
+.control-button {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.control-button:hover {
+  color: #2fff97;
+  transform: scale(1.15);
+}
+
+.control-button:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Scrollbar Improvements */
+::-webkit-scrollbar-thumb {
+  transition: background 0.3s ease;
+}
+
+.chat-area:hover::-webkit-scrollbar-thumb {
+  background: #2fff97;
+}
+
+/* Animasyonlar */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(47, 255, 151, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(47, 255, 151, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(47, 255, 151, 0); }
+}
+
+.server-item.active {
+  animation: pulse 1.5s infinite;
+}
+
+/* Media Query for Mobile Compatibility */
+@media (max-width: 768px) {
+  .server-item:hover {
+    transform: none;
+    background-color: inherit;
+  }
+  
+  .channel:hover {
+    transform: none;
+  }
+  
+  .user-item:hover {
+    transform: none;
+  }
+}
+/* Yeni Gradient Efektleri */
+.server-item.active {
+  background: linear-gradient(145deg, #2fff9744, #0d0e0e);
+  border-color: #2fff97;
+}
+
+.message-container:hover {
+  background: linear-gradient(90deg, #1a1a1a00 0%, #1a1a1a66 100%);
+}
+
+/* Glow Effect */
+@keyframes glow {
+  0% { box-shadow: 0 0 10px #2fff9733; }
+  50% { box-shadow: 0 0 20px #2fff9766; }
+  100% { box-shadow: 0 0 10px #2fff9733; }
+}
+
+.button-group button:hover {
+  animation: glow 1.5s infinite;
+}
+
+/* Loading Animation */
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #2fff97;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Text Animations */
+.username {
+  position: relative;
+  display: inline-block;
+}
+
+.username:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #2fff97;
+  animation: underline 0.3s ease-out;
+}
+
+@keyframes underline {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* 3D Transform Efektleri */
+.profile-photo:hover {
+  transform: perspective(500px) rotateY(15deg) scale(1.1);
+}
+
+.server-item:hover {
+  transform: perspective(500px) translateZ(10px);
+}
+
+/* Smooth Shadow on Hover */
+.channel-container {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.channel-container:hover {
+  box-shadow: 5px 0 15px #2fff9733;
+}
+
+/* Input Area Animation */
+.message-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.message-box::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #2fff97;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.message-box:focus-within::before {
+  transform: scaleX(1);
+}
+
+/* Neon Vibration Effect */
+@keyframes neon-pulse {
+  0%, 100% { filter: drop-shadow(0 0 2px #2fff97); }
+  50% { filter: drop-shadow(0 0 5px #2fff97); }
+}
+
+.app-logo {
+  animation: neon-pulse 2s infinite;
+}
+
+/* Color Change Effect */
+.user-item:hover .username {
+  color: #2fff97 !important;
+  transition: color 0.3s 0.1s;
+}
+
+/* Custom Scrollbar Animation */
+::-webkit-scrollbar-thumb {
+  transition: all 0.5s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2fff97;
+  box-shadow: 0 0 10px #2fff97;
+}
+
+/* Responsive Hover Efektleri */
+@media (hover: hover) {
+  .server-item:hover {
+    transform: perspective(500px) translateZ(10px);
+  }
+  
+  .profile-photo:hover {
+    transform: perspective(500px) rotateY(15deg) scale(1.1);
+  }
+}
+
+
+/* Ray Effect */
+@keyframes ray {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.button-group button:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    #2fff9744 50%,
+    transparent 75%
+  );
+  animation: ray 1.5s infinite;
+  opacity: 0.5;
+}

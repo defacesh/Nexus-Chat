@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"> <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus | Global</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <div class="top-container no-select"><h3>Nexus Network</h3></div>
+
+    <div class="main-container">
+      <div class="left-side-container no-select">
+        <div class="server-container no-select">
+          <br>
+          <div class="app-logo"><h2>D</h2><hr></div>
+          <div class="servers">
+            <div class="server-item active" title="Global Server"><h2>G</h2><br></div>
+            <div class="server-item" title="Dev Community"><h2>D</h2><br></div>
+            <div class="server-item" title="Gaming"><h2>G</h2><br></div>
+            <div class="server-item" title="Support"><h2>S</h2><br></div>
+          </div>
+        </div>
+
+        <div class="channel-container">
+          <div class="channel-server-info">
+            <h3>Global Community</h3>
+          </div>
+          <br>
+          
+          <div class="channel-category">
+            <h4>Information ›</h4>
+            <div class="channels">
+              <div class="channel"><h5><span class="material-icons" style="font-size: 14px; vertical-align: middle;">notifications</span> announcements</h5></div>
+            </div>
+          </div>
+          
+          <div class="channel-category">
+            <h4>Text Channels ›</h4>
+            <div class="channels">
+              <div class="channel active"><h5><span class="material-icons" style="font-size: 14px; vertical-align: middle;">tag</span> general-chat</h5></div>
+              <div class="channel"><h5><span class="material-icons" style="font-size: 14px; vertical-align: middle;">tag</span> help-center</h5></div>
+            </div>
+          </div>
+        
+          <div class="user-status">
+            <div class="status-item">
+              <div class="profile-photo"></div>
+              <div class="status-info">
+                <span class="username">defacesh</span>
+                <span class="status-text">Working on Nexus...</span>
+              </div>
+            </div>
+          </div>
+        
+          <div class="bottom-controls">
+            <button class="control-button" title="Mute"><i class="material-icons">mic</i></button>
+            <button class="control-button" title="Deafen"><i class="material-icons">headset</i></button>
+            <button class="control-button" title="Settings"><i class="material-icons">settings</i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-container">
+        <div class="chat-area" id="chat-area">
+          <div class="message-container">
+            <div class="profile-photo" style="border-color: #2fff97;"></div>
+            <div class="message-content">
+              <div class="message-header">
+                <h4 class="username" style="color: #2fff97;">System</h4>
+                <h5 class="time">Now</h5>
+              </div>
+              <div class="message"><pre>Welcome to the global general chat.</pre></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-bottom-area" id="message-container">
+          <div class="message-box no-select">
+            <textarea 
+              id="message-input" 
+              placeholder="Message #general-chat"
+              rows="1"
+            ></textarea>
+          </div>
+          <div class="button-group no-select">
+            <button class="file-upload"><i class="material-icons">add_circle</i></button>
+            <button class="emoji-picker"><i class="material-icons">mood</i></button>
+            <button class="gif-picker"><i class="material-icons">gif</i></button>
+            <button class="sticker-picker"><i class="material-icons">send</i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-side-container no-select">
+        <div class="user-list">
+          <div class="user-category">
+            <h3>Online <span class="user-count">(0)</span></h3>
+            <div class="user-item online">
+              <div class="profile-photo"></div>
+              <div class="user-info"><span class="username">User One</span></div>
+            </div>
+            <div class="user-item online">
+              <div class="profile-photo"></div>
+              <div class="user-info"><span class="username">User Two</span></div>
+            </div>
+          </div>
+      
+          <div class="user-category">
+            <h3>Offline <span class="user-count">(0)</span></h3>
+            <div class="user-item offline">
+              <div class="profile-photo"></div>
+              <div class="user-info"><span class="username">User Three</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

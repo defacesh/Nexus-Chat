@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Nexus</title>
+    <style>
+        /* Theme Styles */ 
+        @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+        body {
+        background-color: #0d0e0e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+
+        .signup-container {
+            background: #151718;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            border: 1px solid #36393f;
+            z-index: 1;
+        }
+
+        .signup-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #2fff97, transparent 50%);
+            z-index: -1;
+            border-radius: 18px;
+            opacity: 0.15;
+        }
+
+        .signup-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #2fff97;
+    position: relative;
+    background: #0d0e0e;
+    overflow: hidden; /* Important */
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    width: 500%; /* Larger animation area */
+    height: 500%;
+    background: conic-gradient(
+        #2fff97 0deg,
+        #2fff97 90deg,
+        transparent 130deg,
+        transparent 230deg,
+        #2fff97 270deg,
+        #2fff97 360deg
+    );
+    animation: rotate 3s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.logo-content {
+    position: relative;
+    z-index: 1;
+    background: #0d0e0e;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0d0e0e; /* Stabilizes the logo border */
+}
+
+        .signup-header h1 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .signup-header p {
+            color: #6b6b6b;
+            font-size: 14px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            background: #1e1f22;
+            border: 1px solid #36393f;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2fff97;
+            box-shadow: 0 0 0 3px rgba(47, 255, 151, 0.1);
+        }
+
+        .input-group input::placeholder {
+            color: #6b6b6b;
+        }
+
+        .password-strength {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #6b6b6b;
+        }
+
+        .password-strength span {
+            color: #2fff97;
+        }
+
+        .terms {
+            margin: 20px 0;
+            font-size: 12px;
+            color: #6b6b6b;
+            text-align: center;
+        }
+
+        .terms a {
+            color: #2fff97;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 14px;
+            background: #2fff97;
+            color: #0d0e0e;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(47, 255, 151, 0.2);
+        }
+
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #6b6b6b;
+        }
+
+        .login-link a {
+            color: #2fff97;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Background Animation */
+        .background-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow: 0 0 10px white;
+            animation: shoot 2s linear infinite;
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(500px) translateY(500px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Arka Plan Animasyonu -->
+    <div class="background-effects">
+        <div
+          class="gradient-circle"
+          style="width: 400px; height: 400px; top: 20%; left: 10%"
+        ></div>
+        <div
+          class="gradient-circle"
+          style="width: 300px; height: 300px; bottom: 15%; right: 10%"
+        ></div>
+      </div>
+
+    <!-- Sign Up Formu -->
+    <div class="signup-container">
+        <div class="signup-header">
+            <div class="logo">
+                <div class="logo-content">N</div>
+            </div>
+            <h1>Create Your Account</h1>
+            <p>Join the Nexus community today</p>
+        </div>
+        
+        <form>
+            <div class="input-group">
+                <input type="text" placeholder="Username" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+                <div class="password-strength">Strength: <span>Weak</span></div>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" placeholder="Confirm Password" required>
+            </div>
+            
+            <div class="terms">
+                By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+            </div>
+            
+            <button type="submit" class="signup-btn">Sign Up</button>
+            
+            <div class="login-link">
+                Already have an account? <a href="#">Log In</a>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function createShootingStars() {
+    const container = document.createElement('div');
+    container.style.position = 'fixed';
+    container.style.top = '0';
+    container.style.left = '0';
+    container.style.width = '100%';
+    container.style.height = '100%';
+    container.style.pointerEvents = 'none';
+    container.style.zIndex = '-1';
+    container.style.overflow = 'hidden';
+    document.body.prepend(container);
+
+    // Function to create stars
+    function createStar() {
+        const star = document.createElement('div');
+        star.style.position = 'absolute';
+        star.style.width = Math.random() * 3 + 'px';
+        star.style.height = star.style.width;
+        star.style.backgroundColor = 'white';
+        star.style.borderRadius = '50%';
+        star.style.opacity = Math.random() * 0.7 + 0.3;
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        
+        // Slow twinkle effect
+        star.style.animation = `twinkle ${Math.random() * 5 + 3}s infinite alternate`;
+        
+        container.appendChild(star);
+    }
+
+    // Shooting star effect
+    function createShootingStar() {
+        const shootingStar = document.createElement('div');
+        shootingStar.style.position = 'absolute';
+        shootingStar.style.width = '2px';
+        shootingStar.style.height = '2px';
+        shootingStar.style.backgroundColor = 'white';
+        shootingStar.style.boxShadow = '0 0 10px 2px rgba(255, 255, 255, 0.8)';
+        
+        // Random start position
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 50;
+        shootingStar.style.left = startX + '%';
+        shootingStar.style.top = startY + '%';
+        
+        // Random direction and length
+        const angle = Math.random() * 30 + 15;
+        const distance = Math.random() * 100 + 50;
+        const endX = startX + distance * Math.cos(angle * Math.PI / 180);
+        const endY = startY + distance * Math.sin(angle * Math.PI / 180);
+        
+        // Animasyon
+        shootingStar.style.animation = `shoot ${Math.random() * 2 + 1}s linear`;
+        shootingStar.style.animationTimingFunction = 'cubic-bezier(0.4, 0, 0.2, 1)';
+        
+        // Remove when animation ends
+        shootingStar.addEventListener('animationend', () => {
+            shootingStar.remove();
+        });
+        
+        container.appendChild(shootingStar);
+    }
+
+    // CSS animation definitions
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes shoot {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Create initial stars
+    for (let i = 0; i < 200; i++) {
+        createStar();
+    }
+
+    // Create shooting stars at regular intervals
+    setInterval(createShootingStar, 1000);
+}
+
+// Start the animation
+document.addEventListener('DOMContentLoaded', createShootingStars);
+  </script>
+</html>
